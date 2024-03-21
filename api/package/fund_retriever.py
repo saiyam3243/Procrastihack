@@ -9,6 +9,7 @@ class FundRetriever:
     def _calculate_esg_score_per_persona(self, persona: str):
         pass
 
+   # TODO return a dictionary
     def calculate_top_k_funds(self, persona: str, k: int):
 
         score_fund_mapping = self._calculate_esg_score_per_persona(persona)
@@ -17,9 +18,3 @@ class FundRetriever:
 
         return sorted_funds[:k]
     
-
-
-
-
-
-
