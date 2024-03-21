@@ -24,9 +24,9 @@ def get_topk_funds(persona: str, k: 3):
 
     fund_retriever = FundRetriever()
 
-    top_k_funds, scores = fund_retriever.calculate_top_k_funds(persona, k)
+    top_k_funds = fund_retriever.calculate_top_k_funds(persona, k)
 
-    return top_k_funds, scores
+    return jsonify(top_k_funds)
 
 
 @app.route("/api/persona")
