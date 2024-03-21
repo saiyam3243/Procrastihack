@@ -4,7 +4,6 @@
 # pre-requisites:
 #   - pip install --upgrade openai
 
-import os
 from openai import AzureOpenAI
 import json
 
