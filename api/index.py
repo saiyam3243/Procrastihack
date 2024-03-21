@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, jsonify
+from package.persona import esg_persona_description_mappings
 app = Flask(__name__)
 
 
@@ -13,7 +14,9 @@ def hello_world():
 # get_bottom3_companies(indicators: List[Indicator]) -> Bott 3 companies
 # get_top10_funds(indicators: List[Indicator]) -> Top 10 funds
 # get_persona_mappings() -> Persona Mappings
+ 
+
 
 @app.route("/api/persona")
 def get_persona_mapping():
-    pass
+    return jsonify(esg_persona_description_mappings), 200
