@@ -80,5 +80,6 @@ def post_llm_persona():
     global persona
     chat_history = request.json['chat_history']
     persona = llm.find_persona(chat_history)
+    return make_response(jsonify({"persona" : persona}), 200)
 
     
