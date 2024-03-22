@@ -2,7 +2,7 @@
 
 ## Overview
 
-The VisionVest is a web application designed to showcase the impacts of investments on climate change, including aspects like greenhouse gas emissions, fossil fuels, and energy efficiency. Built with React, this application utilizes a clean and modern UI to present data on various companies and their environmental, social, and governance (ESG) scores.
+The VisionVest is a web application designed to showcase the impacts of investments on climate change, including aspects like greenhouse gas emissions, fossil fuels, and energy efficiency. Built with Next.js and Python, this application utilizes a clean and modern UI to present data on various companies and their environmental, social, and governance (ESG) scores.
 
 ## Features
 
