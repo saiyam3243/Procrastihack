@@ -1,5 +1,5 @@
 """Functionality to retrieve top k funds"""
-
+import os
 import pandas as pd
 from package.persona import esg_persona_factors_mappings
 
@@ -7,6 +7,8 @@ from package.persona import esg_persona_factors_mappings
 class FundRetriever:
 
     def __init__(self, path_fund_data: str = "./data/EUESGMANUFACTURER-LIGHT.csv") -> None:
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        path_fund_data = os.path.join(dir_path, path_fund_data)
         self.fund_data = pd.read_csv(path_fund_data)
 
     def _retrieve_persona_metrics(self, persona: str):
@@ -67,13 +69,17 @@ class FundRetriever:
 
         return score_fund_dict
 
-    # TODO return a dictionary
     def calculate_top_k_funds(self, persona: str, k: int):
-
+        # funds sorted based on their esg score
         score_fund_mapping = self._calculate_esg_score_per_persona(persona)
-
         sorted_funds = sorted(
-            score_fund_mapping, key=score_fund_mapping.get, reverse=True
+            score_fund_mapping.items(), key= lambda x: x[1], reverse=True
         )
+        top_k_funds = dict(sorted_funds[:k])
+        return top_k_funds
 
-        return sorted_funds[:k]
+# Testing:
+# from persona import ESGPersona
+# fr = FundRetriever()
+# persona = ESGPersona()
+# print(fr.calculate_top_k_funds(persona.name, 3))

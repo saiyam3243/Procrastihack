@@ -19,7 +19,8 @@ esg_persona_description_mappings = {
 }
 
 class ESGPersona:
-    def __init__(self, name= "Climate Change", factors=[], description=""):
+    def __init__(self, name= "Sustainable Development", factors=['Biodiversity', 'Fossil fuels'],
+                  description="Aims for investments that support sustainable development, particularly in terms of biodiversity and fossil fuels."):
         self.name = name
         self.factors = factors
         self.description = description
