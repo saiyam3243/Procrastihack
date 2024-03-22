@@ -21,7 +21,7 @@ class LLM:
 
         # Setting up the deployment name
         self.chatgpt_model_name = my_config['model']
-
+        self.messages = []
         self.client = AzureOpenAI(
             api_key=my_config['apiKey'],
             api_version=my_config['apiVersion'],
@@ -29,14 +29,17 @@ class LLM:
             )
 
     def get_response_for_prompt(self, prompt):
+        self.messages.append({"role": "assistant", "content": prompt})
+
         response = self.client.chat.completions.create(
             model = self.chatgpt_model_name,
-            messages=[{"role": "assistant", "content": prompt}])
+            messages=self.messages)
+        
+        self.messages.append({"role": "user", "content": response.choices[0].message.content})
         return (response.choices[0].message.content)
     
     # TODO
     def find_persona(self, chat_history):
         # Send a completion call to generate an answer
-        print('Sending a test completion job')
         prompt = "Hey, what's up?"    
         return self.get_response_for_prompt(prompt)
