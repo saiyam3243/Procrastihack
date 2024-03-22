@@ -12,7 +12,7 @@ export default function Home() {
   const router = useRouter();
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-24 pb-24 pl-12 pr-12">
-      <div className=" font-bold text-6xl text-[#de3919]">VirtueVest</div>
+      <div className=" font-bold text-6xl text-[#de3919]">VisionVest</div>
       <div>
           <Parallax speed={20} scale={[0.8, 1.2]}>
             <video autoPlay loop muted className="w-full h-full object-cover" >

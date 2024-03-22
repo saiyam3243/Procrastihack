@@ -51,7 +51,7 @@ const InvestPage: React.FC = () => {
     }, []);
     return (
         <div className="flex min-h-screen flex-col items-center justify-center space-y-20 pt-24 pb-24 pl-12 pr-12">
-            <div className=" font-bold text-6xl text-[#de3919]">VirtueVest</div>
+            <div className=" font-bold text-6xl text-[#de3919]">VisionVest</div>
 
             <Card className="p-4 flex flex-col items-center justify-center shadow-2xl">
                 <CardTitle className="p-4">Persona : Climate change</CardTitle>
