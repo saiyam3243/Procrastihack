@@ -17,7 +17,7 @@ To get started with the ESG Investment Dashboard, follow these steps:
 1. Ensure you have [Node.js](https://nodejs.org/) installed on your system.
 2. Clone the repository to your local machine.
 3. Navigate to the project directory and run `npm install` to install the necessary dependencies.
-4. Once the dependencies are installed, run `npm start` to launch the application. It should now be accessible at `http://localhost:3000`.
+4. Once the dependencies are installed, run `npm run dev` to launch the application. It should now be accessible at `http://localhost:3000`.
 
 ## License
 
