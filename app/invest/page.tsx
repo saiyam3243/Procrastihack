@@ -1,6 +1,6 @@
 'use client'
 import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 interface Fund {
     [key: string]: number;
 }

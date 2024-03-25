@@ -1,11 +1,7 @@
 'use client'
-import Image from 'next/image'
-import Link from 'next/link'
 import { ParallaxProvider, useParallax, Parallax } from 'react-scroll-parallax';
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
-import { data } from 'autoprefixer';
-import { MinusIcon, PlusIcon } from 'lucide-react';
 import Stories from '@/components/home/stories';
 import { Quiz } from '@/components/home/quiz';
 export default function Home() {
