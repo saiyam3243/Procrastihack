@@ -2,7 +2,7 @@
 import { ParallaxProvider, useParallax, Parallax } from 'react-scroll-parallax';
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
-import Stories from '@/components/home/stories';
+// import Stories from '@/components/home/stories';
 import { Quiz } from '@/components/home/quiz';
 export default function Home() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function Home() {
           </Parallax>
         </div>
         <Quiz />
-        <Stories />
+        {/* <Stories /> */}
       <Button onClick={() => router.push('/invest')}>Lets Invest</Button>
     </main>
   )
