@@ -36,23 +36,10 @@
     --radius: 0.5rem;
   }
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    }
+  .bg-background {
+    background-color: hsl(var(--background));
   }
-  
+  body {
+    background-color: linear-gradient(to bottom, #000000, #ffffff);
+  }
 }
-::-webkit-scrollbar { 
-  display: none; 
-}
-/* body {
-  background: rgb(219,229,231);
-  background: linear-gradient(0deg, rgba(219,229,231,1) 0%, rgba(60,60,79,1) 65%, rgba(2,1,17,1) 100%);
-  color: var(--foreground);
-  min-height: 100vh;
-  margin: 0;
-} */
