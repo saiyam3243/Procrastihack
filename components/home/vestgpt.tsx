@@ -9,7 +9,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import { use, useEffect, useState } from "react"
+import { useState } from "react"
 
 interface QAPair {
     question: string;
