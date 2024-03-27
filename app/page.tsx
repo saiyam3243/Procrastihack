@@ -18,7 +18,7 @@ export default function Home() {
           </video>
         </Parallax>
       </div>
-      <div className="fixed bottom-16 right-16 font-bold text-white">
+      <div className="fixed bottom-8 right-8 font-bold text-white">
         <VestGPT />
       </div>
 
