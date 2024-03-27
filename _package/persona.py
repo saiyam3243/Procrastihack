@@ -1,5 +1,5 @@
-from dataclasses import dataclass, field
-from typing import List
+# from dataclasses import dataclass, field
+# from typing import List
 
 # source: https://www.morganstanley.com/content/dam/msdotcom/infographics/sustainable-investing/Sustainable_Signals_Individual_Investor_White_Paper_Final.pdf
 esg_persona_factors_mappings = {
