@@ -82,4 +82,6 @@ def post_llm_persona():
     persona = llm.find_persona(chat_history)
     return make_response(jsonify({"persona" : persona}), 200)
 
-    
+
+if __name__ == "__main__":
+    app.run()
