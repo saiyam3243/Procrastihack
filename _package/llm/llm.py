@@ -4,7 +4,7 @@ import os
 import openai
 import json
 from dotenv import load_dotenv
-from package.persona import esg_persona_description_mappings
+from _package.persona import esg_persona_description_mappings
 
 class LLM:
     def __init__(self):

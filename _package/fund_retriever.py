@@ -1,7 +1,7 @@
 """Functionality to retrieve top k funds"""
 import os
 import pandas as pd
-from package.persona import esg_persona_factors_mappings
+from _package.persona import esg_persona_factors_mappings
 
 
 class FundRetriever:

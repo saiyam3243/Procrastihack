@@ -13,7 +13,7 @@ const InvestPage: React.FC = () => {
     const [funds, setFunds] = useState<FundsData[]>([]);
 
     const getPersona = async () => {
-        const url = 'https://procrastihack-git-main-saiyams-projects.vercel.app/api/persona';
+        const url = '/api/persona';
         try {
             const response = await fetch(url, {
                 method: 'GET',

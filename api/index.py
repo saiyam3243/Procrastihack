@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, make_response
-from package.persona import ESGPersona, esg_persona_description_mappings
-from package.fund_retriever import FundRetriever
-from package.llm.llm import LLM
+from _package.persona import ESGPersona, esg_persona_description_mappings
+from _package.fund_retriever import FundRetriever
+from _package.llm.llm import LLM
 from flask_cors import CORS
 
 app = Flask(__name__)
