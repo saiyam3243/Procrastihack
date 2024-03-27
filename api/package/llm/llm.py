@@ -1,44 +1,28 @@
-# This is a basic sample to use Azure OpenAI
-# 3 configurations are available in the file openAI_config.json
-#
 # pre-requisites:
 #   - pip install --upgrade openai
 import os
-from openai import AzureOpenAI
+import openai
 import json
-
+from dotenv import load_dotenv
 from package.persona import esg_persona_description_mappings
 
 class LLM:
-    def __init__(self, config_path='openAI_config.json'):
-        # Load config values
-        dir_path = os.path.dirname(os.path.realpath(__file__))
-        config_path = os.path.join(dir_path, config_path)
-        with open(config_path) as config_file:
-            openAI_config = json.load(config_file)
-
-        my_config = openAI_config['openAIConfigs'][2]
-
-        # print(f"use openAI config {my_config['configName']}")
-
-        # Setting up the deployment name
-        self.chatgpt_model_name = my_config['model']
+    def __init__(self):
         self.messages = []
-        self.client = AzureOpenAI(
-            api_key=my_config['apiKey'],
-            api_version=my_config['apiVersion'],
-            azure_endpoint=my_config['urlBase']
-            )
+        load_dotenv()
+        openai.api_key = os.getenv('OPENAI_API_KEY')
+    
 
     def get_response_for_prompt(self, prompt):
-        self.messages.append({"role": "assistant", "content": prompt})
+        self.messages.append({"role": "user", "content": prompt})
 
-        response = self.client.chat.completions.create(
-            model = self.chatgpt_model_name,
-            messages=self.messages)
+        response = openai.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=self.messages
+        )
         
-        self.messages.append({"role": "user", "content": response.choices[0].message.content})
-        return (response.choices[0].message.content)
+        self.messages.append({"role": "assistant", "content": response.choices[0].message.content})
+        return response.choices[0].message.content
     
 
     def find_persona(self, chat_history):
