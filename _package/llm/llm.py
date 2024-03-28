@@ -1,7 +1,7 @@
 # pre-requisites:
 #   - pip install --upgrade openai
 import os
-import openai
+# import openai
 import json
 from dotenv import load_dotenv
 from _package.persona import esg_persona_description_mappings
@@ -10,19 +10,20 @@ class LLM:
     def __init__(self):
         self.messages = []
         load_dotenv()
-        openai.api_key = os.getenv('OPENAI_API_KEY')
+        # openai.api_key = os.getenv('OPENAI_API_KEY')
     
 
     def get_response_for_prompt(self, prompt):
         self.messages.append({"role": "user", "content": prompt})
 
-        response = openai.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=self.messages
-        )
+        # response = openai.chat.completions.create(
+        #     model="gpt-3.5-turbo",
+        #     messages=self.messages
+        # )
         
         self.messages.append({"role": "assistant", "content": response.choices[0].message.content})
-        return response.choices[0].message.content
+        # return response.choices[0].message.content
+        return "Sustainable Development"
     
 
     def find_persona(self, chat_history):

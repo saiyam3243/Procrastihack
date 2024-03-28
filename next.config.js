@@ -11,14 +11,6 @@ const nextConfig = {
       },
     ]
   },
-  experimental: {
-		outputFileTracingExcludes: {
-			'/api/': [
-				'./node_modules/@next/swc-linux-x64-musl/**/*',
-				'./node_modules/@next/swc-linux-x64-gnu/**/*',
-			],
-		},
-	},
 }
 
 module.exports = nextConfig
