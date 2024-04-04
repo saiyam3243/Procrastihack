@@ -3,13 +3,13 @@
 import os
 import openai
 import json
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from _package.persona import esg_persona_description_mappings
 
 class LLM:
     def __init__(self):
         self.messages = []
-        load_dotenv()
+        # load_dotenv()
         openai.api_key = os.getenv('OPENAI_API_KEY')
     
 
