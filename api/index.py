@@ -1,13 +1,13 @@
 from flask import Flask, request, jsonify, make_response
 from _package.persona import ESGPersona, esg_persona_description_mappings
 from _package.fund_retriever import FundRetriever
-# from _package.llm.llm import LLM
+from _package.llm.llm import LLM
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
-# llm = LLM()
+llm = LLM()
 persona = ESGPersona()
 
 @app.route("/api/python")
@@ -58,8 +58,8 @@ def get_esg_persona_description_mapping():
     return make_response({ persona.name: esg_persona_description_mappings[persona.name]}, 200)
 
 # LLM API endpoints
-# @app.route("/api/llm", methods=["POST"])
-# def post_llm():
+@app.route("/api/llm", methods=["POST"])
+def post_llm():
     """
     Get the response from the LLM model given a prompt.
 
@@ -70,17 +70,17 @@ def get_esg_persona_description_mapping():
 
     return make_response(jsonify({"response" : response}), 200)
 
-# @app.route("/api/llm_persona", methods=["POST"])
-# def post_llm_persona():
-#     """
-#     Save the persona from the LLM model given a chat history.
+@app.route("/api/llm_persona", methods=["POST"])
+def post_llm_persona():
+    """
+    Save the persona from the LLM model given a chat history.
 
-#     :return: None
-#     """
-#     global persona
-#     chat_history = request.json['chat_history']
-#     persona = llm.find_persona(chat_history)
-#     return make_response(jsonify({"persona" : persona}), 200)
+    :return: None
+    """
+    global persona
+    chat_history = request.json['chat_history']
+    persona = llm.find_persona(chat_history)
+    return make_response(jsonify({"persona" : persona}), 200)
 
 
 if __name__ == "__main__":
