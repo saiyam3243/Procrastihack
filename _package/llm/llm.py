@@ -4,7 +4,8 @@ import os
 import openai
 import json
 # from dotenv import load_dotenv
-from _package.persona import esg_persona_description_mappings
+from _package.persona_mappings import esg_persona_factors_mappings, esg_persona_description_mappings
+from _package.persona import ESGPersona
 
 class LLM:
     def __init__(self):
@@ -35,8 +36,9 @@ class LLM:
                   "The following are the persona descriptions: {persona_descriptions}."
                   "You have to return the persona that best describes the user based on the chat history. Please "
                   "make sure that the output is just the persona classification. The output should be one of the following personas: "
-                  "Sustainable Development, Climate Change, Water and Waste Management, Social Matters, Policy Adherence. Please output the "
-                  "persona as a json string with the key as \"persona\" and the value as the persona classification. ")
+                  "Sustainable Development, Climate Change, Water and Waste Management, Social Matters, Policy Adherence. " 
+                  "Please output the persona, which should be one of the keys in the persona descriptions")
         
         prompt_string = prompt.format(chat_history=chat_history, persona_descriptions=json.dumps(esg_persona_description_mappings))
-        return self.get_response_for_prompt(prompt_string)
+        name = self.get_response_for_prompt(prompt_string)
+        return ESGPersona(name, esg_persona_factors_mappings[name], esg_persona_description_mappings[name])
