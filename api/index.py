@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, make_response
-from _package.persona import ESGPersona, esg_persona_description_mappings
+from _package.persona import ESGPersona
+from _package.persona_mappings import esg_persona_description_mappings
 from _package.fund_retriever import FundRetriever
 from _package.llm.llm import LLM
 from flask_cors import CORS
@@ -75,12 +76,11 @@ def post_llm_persona():
     """
     Save the persona from the LLM model given a chat history.
 
-    :return: None
     """
     global persona
     chat_history = request.json['chat_history']
     persona = llm.find_persona(chat_history)
-    return make_response(jsonify({"persona" : persona}), 200)
+    return make_response(jsonify({"persona" : str(persona)}), 200)
 
 
 if __name__ == "__main__":

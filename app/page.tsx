@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 // import Stories from '@/components/home/stories';
 import { Quiz } from '@/components/home/quiz';
-import { VestGPT } from '@/components/home/vestgpt';
 import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
 
 export default function Home() {
@@ -37,9 +36,6 @@ export default function Home() {
         </CardFooter>
       </Card>
 
-      <div className="fixed bottom-8 right-8 font-bold text-white z-10">
-        <VestGPT />
-      </div>
     </main>
   )
 }
