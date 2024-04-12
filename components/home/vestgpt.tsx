@@ -18,7 +18,6 @@ interface QAPair {
 
 export function VestGPT() {
     const [question, setQuestion] = useState<string>("")
-    const [questions, setQuestions] = useState<string[]>([])
     const [qaPairs, setQAPairs] = useState<QAPair[]>([])
         let qaPairs2: QAPair[] = [
         {
@@ -29,7 +28,7 @@ export function VestGPT() {
     ];
     const query = async () => {
         try {
-            setQuestions((prevAnswers: any[]) => [...prevAnswers, question])
+            setQAPairs((prevPairs) => [...prevPairs, { question: question, answer: '' }]);
             const response = await fetch("/api/llm", {
                 method: "POST",
                 headers: {
@@ -43,7 +42,7 @@ export function VestGPT() {
             if (response.ok) {
                 // Handle successful response
                 const data = await response.json();
-                setQAPairs((prevPairs) => [...prevPairs, { question: question, answer: data.response }]);
+                setQAPairs((prevPairs) => [...prevPairs.slice(0, -1), { question: question, answer: data.response }]);
                 // qaPairs.push({ question: question, answer: data.response })
                 qaPairs2.push({
                     question: "What is ESG investing?",

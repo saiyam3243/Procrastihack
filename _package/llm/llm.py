@@ -41,4 +41,11 @@ class LLM:
         
         prompt_string = prompt.format(chat_history=chat_history, persona_descriptions=json.dumps(esg_persona_description_mappings))
         name = self.get_response_for_prompt(prompt_string)
-        return ESGPersona(name, esg_persona_factors_mappings[name], esg_persona_description_mappings[name])
+        
+        try:
+          persona = ESGPersona(name, esg_persona_factors_mappings[name], esg_persona_description_mappings[name])
+          return persona
+        except Exception as e:
+          print(e)
+          # return a default persona
+          return ESGPersona()

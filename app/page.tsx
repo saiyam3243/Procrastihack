@@ -17,7 +17,7 @@ export default function Home() {
       </div>
 
       <Card className="p-4 flex flex-col items-center justify-center shadow-2xl w-3/4 mb-10 z-10">
-        <CardTitle className="p-4">Let's begin with investment!</CardTitle>
+        <CardTitle className="p-4">Let's dive into a conversation!</CardTitle>
         <CardContent className="text-center w-2/3">
           Don't know about ESG or how to start with investments? No worries! Go through the conversation and quizzes below to strengthen your knowledge      
           </CardContent>
