@@ -6,11 +6,11 @@ import { Quiz } from '@/components/home/quiz';
 import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
 import { useState, useRef } from "react";
 import { PlayIcon, PauseIcon } from 'lucide-react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 
 export default function Home() {
-  AOS.init();
+  // AOS.init();
   const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoPlaying, setVideoPlaying] = useState(true);
@@ -45,7 +45,7 @@ export default function Home() {
         <source src="/esg.mp4" type="video/mp4" />
       </video>
 
-      <Card data-aos="fade-up" data-aos-duration="800" className="p-2 flex flex-col items-center justify-center shadow-2xl w-3/4 z-10 mb-20">
+      <Card className="p-2 flex flex-col items-center justify-center shadow-2xl w-3/4 z-10 mb-20">
         <CardTitle className="p-4">Let's begin with investment!</CardTitle>
         <CardContent className="text-center w-2/3">
           Don't know about ESG or how to start with investments? No worries! Go through the conversation and quizzes below to strengthen your knowledge
@@ -55,7 +55,9 @@ export default function Home() {
         </CardFooter>
       </Card>
 
-      <Card data-aos="fade-up" data-aos-duration="800" className="p-2 flex flex-col items-center justify-center shadow-2xl  w-3/4 mb-10 z-10">
+      <Card 
+      //data-aos="fade#-up" data-aos-duration="1200"
+       className="p-2 flex flex-col items-center justify-center shadow-2xl w-3/4 mb-10 z-10">
         <CardTitle className="p-4">Let's begin with investment!</CardTitle>
         <CardContent className="text-center w-2/3">
           If you have already have some knowledge about investing, you can skip the quiz and invest directly. For questions about investing, you can always ask VestGPT.
