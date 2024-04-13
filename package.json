@@ -16,6 +16,7 @@
     "@types/node": "20.1.4",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
+    "aos": "^3.0.0-beta.6",
     "autoprefixer": "10.4.14",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -45,5 +46,8 @@
   "bugs": {
     "url": "https://github.com/saiyam3243/Procrastihack/issues"
   },
-  "homepage": "https://github.com/saiyam3243/Procrastihack#readme"
+  "homepage": "https://github.com/saiyam3243/Procrastihack#readme",
+  "devDependencies": {
+    "@types/aos": "^3.0.7"
+  }
 }
