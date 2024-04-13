@@ -4,14 +4,15 @@ import { useRouter } from 'next/navigation'
 // import Stories from '@/components/home/stories';
 import { Quiz } from '@/components/home/quiz';
 import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { PlayIcon, PauseIcon } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default function Home() {
-  AOS.init();
-  const router = useRouter();
+  useEffect(() => {
+    AOS.init();
+  }, []);  const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoPlaying, setVideoPlaying] = useState(true);
   const videoHandler = (control: boolean) => {
