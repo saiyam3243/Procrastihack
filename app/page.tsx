@@ -3,9 +3,8 @@ import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 // import Stories from '@/components/home/stories';
 import { Quiz } from '@/components/home/quiz';
-import { VestGPT } from '@/components/home/vestgpt';
 import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { PlayIcon, PauseIcon } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -13,9 +12,11 @@ import 'aos/dist/aos.css';
 export default function Home() {
   AOS.init();
   const router = useRouter();
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [videoPlaying, setVideoPlaying] = useState(true);
   const videoHandler = (control: boolean) => {
-    const videoElement = document.getElementById('video') as HTMLVideoElement;
+    // const videoElement = document.getElementById('video') as HTMLVideoElement;
+    const videoElement = videoRef.current;
     if (videoElement) {
       if (control) {
         videoElement.pause();
@@ -40,7 +41,7 @@ export default function Home() {
       <div data-aos="fade-up" className=" font-bold text-8xl text-[#de3919] min-h-screen z-10 flex justify-center items-center">
         VisionVest
       </div>
-      <video id="video" autoPlay loop muted className="fixed top-0 left-0 -z-1 w-full h-ful w-screen h-screen object-cover bg-fixed ">
+      <video ref={videoRef} autoPlay loop muted className="fixed top-0 left-0 -z-1 w-full h-ful w-screen h-screen object-cover bg-fixed ">
         <source src="/esg.mp4" type="video/mp4" />
       </video>
 
