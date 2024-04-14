@@ -65,21 +65,21 @@ const InvestPage: React.FC = () => {
                     <div>
                         <div className="font-semibold">Adidas</div>
 
-                        <div className="rounded-full bg-[#de3919] h-20 w-20 text-center flex items-center justify-center">
+                        <div className="rounded-full bg-[#de3919] h-20 w-20 text-center flex items-center justify-center text-white text-lg hover:bg-[#de3218] transition-colors duration-400 ease-in-out cursor-pointer">
                             88
                         </div>
                     </div>
                     <div>
                         <div className="font-semibold">Apple</div>
 
-                        <div className="rounded-full bg-[#de3919] h-20 w-20 text-center flex items-center justify-center">
+                        <div className="rounded-full bg-[#de3919] h-20 w-20 text-center flex items-center justify-center text-white text-lg hover:bg-[#de3218] transition-colors duration-400 ease-in-out cursor-pointer">
                             93
                         </div>
                     </div>
                     <div>
                         <div className="font-semibold">Siemens</div>
 
-                        <div className="rounded-full bg-[#de3919] h-20 w-20 text-center flex items-center justify-center">
+                        <div className="rounded-full bg-[#de3919] h-20 w-20 text-center flex items-center justify-center text-white text-lg hover:bg-[#de3218] transition-colors duration-400 ease-in-out cursor-pointer">
                             74
                         </div>
                     </div>
@@ -95,7 +95,7 @@ const InvestPage: React.FC = () => {
                         <div>
                             <div className="font-semibold">{(fundName).split(" ")[0]}</div>
 
-                            <div className="rounded-full bg-[#de3919] h-20 w-20 text-center flex items-center justify-center">
+                            <div className="rounded-full bg-[#de3919] h-20 w-20 text-center flex items-center justify-center text-white text-lg hover:bg-[#de3218] transition-colors duration-400 ease-in-out cursor-pointer">
                                 {Number(value) * 100}
                             </div>
                         </div>
