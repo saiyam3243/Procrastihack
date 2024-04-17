@@ -99,8 +99,23 @@ export function VestGPT() {
                 </div>
                 <DialogFooter>
                     <div className=" w-full m-4 flex gap-x-4">
-                        <Input placeholder="Type your questions here..." onChange={(e) => { setQuestion(e.target.value) }} value={question} />
-                        <Button type="submit" onClick={query} disabled={question ===""}>Ask</Button>
+                        <Input placeholder="Type your questions here..." 
+                            onChange={(e) => { setQuestion(e.target.value) } }
+                            onKeyDown={(e) => { 
+                                if (e.key === 'Enter') { 
+                                query(); 
+                                setQuestion(''); 
+                                } 
+                            } }
+                            value={question} 
+                        />
+                        <Button type="submit" 
+                            onClick={(e) => { 
+                                query(); 
+                                setQuestion('');
+                            } }
+                            disabled={question ===""}> Ask
+                        </Button>
                     </div>
                 </DialogFooter>
             </DialogContent>
