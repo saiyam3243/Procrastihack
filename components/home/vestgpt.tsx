@@ -18,7 +18,6 @@ interface QAPair {
 
 export function VestGPT() {
     const [question, setQuestion] = useState<string>("")
-    const [questions, setQuestions] = useState<string[]>([])
     const [qaPairs, setQAPairs] = useState<QAPair[]>([])
         let qaPairs2: QAPair[] = [
         {
@@ -29,7 +28,7 @@ export function VestGPT() {
     ];
     const query = async () => {
         try {
-            setQuestions((prevAnswers: any[]) => [...prevAnswers, question])
+            setQAPairs((prevPairs) => [...prevPairs, { question: question, answer: '' }]);
             const response = await fetch("/api/llm", {
                 method: "POST",
                 headers: {
@@ -43,7 +42,7 @@ export function VestGPT() {
             if (response.ok) {
                 // Handle successful response
                 const data = await response.json();
-                setQAPairs((prevPairs) => [...prevPairs, { question: question, answer: data.response }]);
+                setQAPairs((prevPairs) => [...prevPairs.slice(0, -1), { question: question, answer: data.response }]);
                 // qaPairs.push({ question: question, answer: data.response })
                 qaPairs2.push({
                     question: "What is ESG investing?",
@@ -100,8 +99,23 @@ export function VestGPT() {
                 </div>
                 <DialogFooter>
                     <div className=" w-full m-4 flex gap-x-4">
-                        <Input placeholder="Type your questions here..." onChange={(e) => { setQuestion(e.target.value) }} value={question} />
-                        <Button type="submit" onClick={query} disabled={question ===""}>Ask</Button>
+                        <Input placeholder="Type your questions here..." 
+                            onChange={(e) => { setQuestion(e.target.value) } }
+                            onKeyDown={(e) => { 
+                                if (e.key === 'Enter') { 
+                                query(); 
+                                setQuestion(''); 
+                                } 
+                            } }
+                            value={question} 
+                        />
+                        <Button type="submit" 
+                            onClick={(e) => { 
+                                query(); 
+                                setQuestion('');
+                            } }
+                            disabled={question ===""}> Ask
+                        </Button>
                     </div>
                 </DialogFooter>
             </DialogContent>

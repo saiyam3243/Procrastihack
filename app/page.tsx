@@ -47,7 +47,7 @@ export default function Home() {
       </video>
 
       <Card data-aos="fade-up" data-aos-duration="800" className="p-2 flex flex-col items-center justify-center shadow-2xl w-3/4 z-10 mb-20">
-        <CardTitle className="p-4">Let's begin with investment!</CardTitle>
+        <CardTitle className="p-4">Let's dive into a conversation!</CardTitle>
         <CardContent className="text-center w-2/3">
           Don't know about ESG or how to start with investments? No worries! Go through the conversation and quizzes below to strengthen your knowledge
         </CardContent>
